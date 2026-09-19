@@ -354,15 +354,6 @@ section{ position:relative; }
 }
 .form-success.show{ display:flex; }
 
-.form-error{
-  display:none; align-items:center; gap:12px;
-  background:rgba(203,68,58,0.10); border:1px solid rgba(203,68,58,0.55);
-  color:#e8a49d; padding:14px 16px; border-radius:var(--radius); font-size:13.5px; margin-bottom:18px;
-}
-.form-error.show{ display:flex; }
-.form-error a{ color:#f2c9c4; text-decoration:underline; }
-.form-error a[href^="tel:"]{ direction:ltr; unicode-bidi:isolate-override; white-space:nowrap; }
-
 /* ============ FOOTER ============ */
 .footer{ background:var(--charcoal-950); border-top:1px solid var(--line); padding:70px 0 30px; }
 .footer .container{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.1fr; gap:50px; }

@@ -176,11 +176,9 @@
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Quote form -> emails the enquiry
-  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/rashidm7mmd@gmail.com';
+  // Quote form -> WhatsApp handoff
   var form = document.getElementById('quoteForm');
   var success = document.getElementById('formSuccess');
-  var failure = document.getElementById('formError');
   if (form) {
     var val = function(id){
       var el = document.getElementById(id);
@@ -207,61 +205,28 @@
         return;
       }
 
-      var btn = form.querySelector('button[type="submit"]');
-      var btnHTML = btn ? btn.innerHTML : '';
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = document.documentElement.lang === 'ar' ? 'جارٍ الإرسال…' : 'Sending…';
-      }
-      var restore = function(){
-        if (btn) { btn.disabled = false; btn.innerHTML = btnHTML; }
-      };
+      var fields = [
+        ['Name', val('fName')],
+        ['Phone', val('fPhone')],
+        ['Email', val('fEmail')],
+        ['Trailer Type', val('fType')],
+        ['Details', val('fMsg')]
+      ];
 
-      var payload = {
-        _subject: 'Quote request from ' + (val('fName') || 'the website'),
-        _template: 'table',
-        _captcha: 'false',
-        Name: val('fName'),
-        Phone: val('fPhone'),
-        Email: val('fEmail') || '(not given)',
-        'Trailer Type': val('fType'),
-        Details: val('fMsg') || '(none)'
-      };
+      var lines = ['Quotation request from trailersolution.ae'];
+      fields.forEach(function(f){
+        if (f[1]) lines.push(f[0] + ': ' + f[1]);
+      });
 
-      var finish = function(ms){
-        success.classList.add('show');
-        setTimeout(function(){
-          success.classList.remove('show');
-          form.reset();
-        }, ms);
-      };
+      var text = encodeURIComponent(lines.join('\n'));
+      success.classList.add('show');
 
-      // Nothing is sent anywhere else, so a failure has to be visible:
-      // tell the visitor plainly rather than pretending it went through.
-      var showError = function(){
-        restore();
-        if (failure) {
-          failure.classList.add('show');
-          setTimeout(function(){ failure.classList.remove('show'); }, 9000);
-        }
-      };
+      window.open('https://wa.me/971544619553?text=' + text, '_blank', 'noopener');
 
-      fetch(FORM_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body: JSON.stringify(payload)
-      }).then(function(res){
-        if (!res.ok) throw new Error('status ' + res.status);
-        return res.json();
-      }).then(function(data){
-        // The relay answers 200 even when it refuses to deliver (e.g. the
-        // form is not activated yet), so trust the payload, not the status.
-        if (!data || String(data.success) !== 'true') {
-          throw new Error(data && data.message ? data.message : 'not delivered');
-        }
-        restore();
-        finish(5000);
-      }).catch(showError);
+      setTimeout(function(){
+        success.classList.remove('show');
+        form.reset();
+      }, 4000);
     });
 
     form.addEventListener('input', function(e){
