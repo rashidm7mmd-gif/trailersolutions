@@ -530,9 +530,21 @@ section{ position:relative; }
 }
 .nav-drawer.open{ transform:translateX(0); }
 .drawer-cta{ display:none; margin-top:6px; }
+/* The quote CTA stays in the bar on phones too — it is the primary action,
+   and burying it in the drawer costs taps. It shrinks instead of hiding,
+   and the drawer keeps its own copy for anyone already in the menu. */
 @media (max-width:560px){
-  .nav-cta{ display:none; }
   .drawer-cta{ display:inline-flex; }
+  .nav .container{ gap:10px; }
+  .nav-right{ gap:10px; }
+  .nav-cta{ padding:10px 14px; font-size:10.5px; letter-spacing:0.06em; }
+  .nav-cta svg{ display:none; }
+}
+@media (max-width:400px){
+  .brand-text span{ display:none; }
+  .brand img{ width:32px; height:32px; }
+  .brand-text strong{ font-size:13px; }
+  .nav-cta{ padding:9px 11px; font-size:10px; }
 }
 .nav-drawer a{ font-family:'Oswald',sans-serif; font-size:16px; letter-spacing:0.05em; text-transform:uppercase; color:var(--white); }
 .nav-scrim{ position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:290; display:none; }
@@ -734,7 +746,10 @@ html[dir="rtl"] .nav-phone{ font-family:'Oswald',sans-serif; }
 a[href^="tel:"], .contact-card a[href^="tel:"]{
   direction:ltr; unicode-bidi:isolate-override; white-space:nowrap;
 }
-html[dir="rtl"] a[href^="tel:"]{ display:inline-block; }
+/* :not(.nav-phone) — this rule outranks the media queries that hide the nav
+   phone chip on narrow screens, and without the exclusion it reappears in
+   Arabic and shoves the quote button and hamburger off the bar. */
+html[dir="rtl"] a[href^="tel:"]:not(.nav-phone){ display:inline-block; }
 
 /* Arabic glyphs are much taller than Latin capitals, so the 0.9 line-height
    the display type relies on makes the hero title overflow and collide with
