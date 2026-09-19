@@ -208,6 +208,8 @@
     "Your Quotation Request": "طلب عرض السعر",
     "Just the essentials — three quick fields and we'll come back to you with a price.": "الأساسيات فقط — ثلاثة حقول سريعة وسنعود إليك بالسعر.",
     "Thanks — opening WhatsApp with your request…": "شكرًا — جارٍ فتح واتساب بطلبك…",
+    "Thanks — your request has been sent. We'll be in touch shortly.": "شكرًا — تم إرسال طلبك. سنتواصل معك قريبًا.",
+    "Sending…": "جارٍ الإرسال…",
     "Full Name *": "الاسم الكامل *",
     "Phone / WhatsApp *": "الهاتف / واتساب *",
     "Email Address": "البريد الإلكتروني",

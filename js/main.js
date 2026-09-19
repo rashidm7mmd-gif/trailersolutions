@@ -176,7 +176,8 @@
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Quote form -> WhatsApp handoff
+  // Quote form -> emails the enquiry, falls back to WhatsApp
+  var FORM_ENDPOINT = 'https://formsubmit.co/ajax/rashidm7mmd@gmail.com';
   var form = document.getElementById('quoteForm');
   var success = document.getElementById('formSuccess');
   if (form) {
@@ -218,15 +219,61 @@
         if (f[1]) lines.push(f[0] + ': ' + f[1]);
       });
 
-      var text = encodeURIComponent(lines.join('\n'));
-      success.classList.add('show');
+      var waText = encodeURIComponent(lines.join('\n'));
 
-      window.open('https://wa.me/971544619553?text=' + text, '_blank', 'noopener');
+      var btn = form.querySelector('button[type="submit"]');
+      var btnHTML = btn ? btn.innerHTML : '';
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = document.documentElement.lang === 'ar' ? 'جارٍ الإرسال…' : 'Sending…';
+      }
+      var restore = function(){
+        if (btn) { btn.disabled = false; btn.innerHTML = btnHTML; }
+      };
 
-      setTimeout(function(){
-        success.classList.remove('show');
-        form.reset();
-      }, 4000);
+      var payload = {
+        _subject: 'Quote request from ' + (val('fName') || 'the website'),
+        _template: 'table',
+        _captcha: 'false',
+        Name: val('fName'),
+        Phone: val('fPhone'),
+        Email: val('fEmail') || '(not given)',
+        'Trailer Type': val('fType'),
+        Details: val('fMsg') || '(none)'
+      };
+
+      var finish = function(ms){
+        success.classList.add('show');
+        setTimeout(function(){
+          success.classList.remove('show');
+          form.reset();
+        }, ms);
+      };
+
+      // If the mail relay is unreachable, hand off to WhatsApp so an
+      // enquiry is never silently lost.
+      var fallbackToWhatsApp = function(){
+        restore();
+        window.open('https://wa.me/971544619553?text=' + waText, '_blank', 'noopener');
+        finish(4000);
+      };
+
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res){
+        if (!res.ok) throw new Error('status ' + res.status);
+        return res.json();
+      }).then(function(data){
+        // The relay answers 200 even when it refuses to deliver (e.g. the
+        // form is not activated yet), so trust the payload, not the status.
+        if (!data || String(data.success) !== 'true') {
+          throw new Error(data && data.message ? data.message : 'not delivered');
+        }
+        restore();
+        finish(5000);
+      }).catch(fallbackToWhatsApp);
     });
 
     form.addEventListener('input', function(e){
