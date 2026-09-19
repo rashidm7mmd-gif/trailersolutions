@@ -176,10 +176,11 @@
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Quote form -> emails the enquiry, falls back to WhatsApp
+  // Quote form -> emails the enquiry
   var FORM_ENDPOINT = 'https://formsubmit.co/ajax/rashidm7mmd@gmail.com';
   var form = document.getElementById('quoteForm');
   var success = document.getElementById('formSuccess');
+  var failure = document.getElementById('formError');
   if (form) {
     var val = function(id){
       var el = document.getElementById(id);
@@ -205,21 +206,6 @@
         firstInvalid.focus();
         return;
       }
-
-      var fields = [
-        ['Name', val('fName')],
-        ['Phone', val('fPhone')],
-        ['Email', val('fEmail')],
-        ['Trailer Type', val('fType')],
-        ['Details', val('fMsg')]
-      ];
-
-      var lines = ['Quotation request from trailersolution.ae'];
-      fields.forEach(function(f){
-        if (f[1]) lines.push(f[0] + ': ' + f[1]);
-      });
-
-      var waText = encodeURIComponent(lines.join('\n'));
 
       var btn = form.querySelector('button[type="submit"]');
       var btnHTML = btn ? btn.innerHTML : '';
@@ -250,12 +236,14 @@
         }, ms);
       };
 
-      // If the mail relay is unreachable, hand off to WhatsApp so an
-      // enquiry is never silently lost.
-      var fallbackToWhatsApp = function(){
+      // Nothing is sent anywhere else, so a failure has to be visible:
+      // tell the visitor plainly rather than pretending it went through.
+      var showError = function(){
         restore();
-        window.open('https://wa.me/971544619553?text=' + waText, '_blank', 'noopener');
-        finish(4000);
+        if (failure) {
+          failure.classList.add('show');
+          setTimeout(function(){ failure.classList.remove('show'); }, 9000);
+        }
       };
 
       fetch(FORM_ENDPOINT, {
@@ -273,7 +261,7 @@
         }
         restore();
         finish(5000);
-      }).catch(fallbackToWhatsApp);
+      }).catch(showError);
     });
 
     form.addEventListener('input', function(e){
