@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "trailer-site",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "/private/tmp/claude-501/-Users-rashidm7mmd-Desktop-trailer-website/preview-site", "-p", "4599"],
+      "port": 4599
+    }
+  ]
+}

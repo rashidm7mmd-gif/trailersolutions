@@ -1,0 +1,26 @@
+# macOS
+.DS_Store
+
+# Working source material — not part of the published site
+ trailer images and logo /
+images/Screenshot*.png
+
+# Pre-edit originals: these still show UMI branding, the old phone
+# number and the un-blurred licence plate. Kept locally, never published.
+images/box-trailer-angle.jpg
+images/box-trailer-side.jpg
+images/box-trailer-truck.jpg
+images/car-carrier-maroon-front.jpg
+images/car-carrier-maroon-rear.jpg
+images/car-carrier-maroon-side.jpg
+images/car-carrier-maroon-side-badge.jpg
+images/car-carrier-white.jpg
+images/car-carrier-yellow-blue.jpg
+images/car-carrier-yellow-dhl.jpg
+images/chassis-detail.jpg
+images/curtain-canopy-cream.jpg
+images/curtain-canopy-grey.jpg
+images/flatbed-bare-chassis.jpg
+images/heavy-mesh-cargo.jpg
+images/reefer-branded.jpg
+images/stake-cage-trailer.jpg
