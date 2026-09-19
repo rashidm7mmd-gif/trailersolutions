@@ -24,3 +24,7 @@ images/flatbed-bare-chassis.jpg
 images/heavy-mesh-cargo.jpg
 images/reefer-branded.jpg
 images/stake-cage-trailer.jpg
+
+# Source PNGs for the WebP cutouts the site actually serves.
+# Kept locally as the alpha-channel masters; not published.
+images/*-cutout.png
