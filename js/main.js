@@ -247,7 +247,7 @@
   function labelFor(a){
     var href = a.getAttribute('href') || '';
     if (href.indexOf('mailto:') === 0) return href.slice(7);
-    if (href.indexOf('tel:') === 0) return '+971 54 461 9553';
+    if (href.indexOf('instagram.com') > -1) return '@trailersolution.ae';
     return '+971 54 461 9553';
   }
 
@@ -255,6 +255,7 @@
     var href = a.getAttribute('href') || '';
     if (href.indexOf('mailto:') === 0) return 'Request a Quote';
     if (href.indexOf('tel:') === 0) return 'Call now';
+    if (href.indexOf('instagram.com') > -1) return 'Open Instagram';
     return 'Open WhatsApp';
   }
 

@@ -40,6 +40,9 @@
     "Email": "البريد الإلكتروني",
     "Call": "اتصال",
     "Chat on WhatsApp": "تواصل عبر واتساب",
+    "Instagram": "إنستغرام",
+    "Follow us on Instagram": "تابعنا على إنستغرام",
+    "Open Instagram": "فتح إنستغرام",
     "Back to Home": "العودة للرئيسية",
 
     /* ---- hero ---- */
