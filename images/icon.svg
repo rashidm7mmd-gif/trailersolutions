@@ -6,7 +6,7 @@
   <g clip-path="url(#c1)">
     <g transform="translate(16,50)">
       <rect x="-10" y="172" width="340" height="8" fill="#3a3634"/>
-      <rect x="35" y="122" width="140" height="20" rx="3" fill="#c9c4bd" stroke="#141212" stroke-width="6"/>
+      <rect x="35" y="122" width="140" height="20" rx="3" fill="#3a3634" stroke="#141212" stroke-width="6"/>
       <rect x="43" y="58" width="122" height="66" rx="6" fill="#7a1f2d" stroke="#141212" stroke-width="6"/>
       <rect x="86" y="58" width="8" height="66" fill="#141212" opacity="0.4"/>
       <rect x="122" y="58" width="8" height="66" fill="#141212" opacity="0.4"/>
