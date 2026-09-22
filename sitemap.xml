@@ -1,63 +1,183 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://trailersolution.ae/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/a-frame-trailer.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/a-frame-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/a-frame-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/a-frame-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/a-frame-trailer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/a-frame-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/a-frame-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/a-frame-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/flatbed-stake-trailer.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/flatbed-stake-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/flatbed-stake-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/flatbed-stake-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/flatbed-stake-trailer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/flatbed-stake-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/flatbed-stake-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/flatbed-stake-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/curtain-side-trailer.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/curtain-side-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/curtain-side-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/curtain-side-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/curtain-side-trailer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/curtain-side-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/curtain-side-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/curtain-side-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/box-reefer-trailer.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/box-reefer-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/box-reefer-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/box-reefer-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/box-reefer-trailer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/box-reefer-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/box-reefer-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/box-reefer-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/heavy-duty-cargo-trailer.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/heavy-duty-cargo-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/heavy-duty-cargo-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/heavy-duty-cargo-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/heavy-duty-cargo-trailer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/heavy-duty-cargo-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/heavy-duty-cargo-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/heavy-duty-cargo-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/car-carrier-trailer.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/car-carrier-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/car-carrier-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/car-carrier-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/car-carrier-trailer.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/car-carrier-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/car-carrier-trailer.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/car-carrier-trailer.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/gcc-export.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/gcc-export.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/gcc-export.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/gcc-export.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/gcc-export.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/gcc-export.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/gcc-export.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/gcc-export.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/engineering.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/engineering.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/engineering.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/engineering.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/engineering.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/engineering.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/engineering.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/engineering.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://trailersolution.ae/quote.html</loc>
-    <lastmod>2026-09-19</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/quote.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/quote.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/quote.html"/>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://trailersolution.ae/ar/quote.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://trailersolution.ae/quote.html"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://trailersolution.ae/ar/quote.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://trailersolution.ae/quote.html"/>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
