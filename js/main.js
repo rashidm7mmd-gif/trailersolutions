@@ -213,7 +213,7 @@
         ['Details', val('fMsg')]
       ];
 
-      var lines = ['Quotation request from trailersolution.ae'];
+      var lines = ['Quotation request from trailers-solution.com'];
       fields.forEach(function(f){
         if (f[1]) lines.push(f[0] + ': ' + f[1]);
       });

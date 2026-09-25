@@ -3,7 +3,7 @@
 Marketing website for **Trailer Solution**, a trailer manufacturer based in
 Ras Al Khor Industrial Area 2, Dubai, building trailers since 2013.
 
-Live site: [trailersolution.ae](https://trailersolution.ae)
+Live site: [trailers-solution.com](https://trailers-solution.com)
 
 ## About the site
 
