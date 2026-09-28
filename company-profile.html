@@ -203,6 +203,16 @@
   }
   .dv-sub{ font-size:10pt; line-height:1.7; color:var(--gray-300); max-width:100mm; margin-top:5mm; }
 
+.dv-bars{ position:absolute; z-index:2; right:0; bottom:0; width:120mm; height:150mm; }
+.dv-bars i{
+  position:absolute; right:0; height:5mm; background:var(--gold); display:block;
+  transform:rotate(-8.2deg); transform-origin:right center;
+}
+.dv-bars i:nth-child(1){ bottom:104mm; width:104mm; opacity:1; }
+.dv-bars i:nth-child(2){ bottom:88mm;  width:78mm;  opacity:.6; }
+.dv-bars i:nth-child(3){ bottom:72mm;  width:52mm;  opacity:.32; }
+.dv-bars i:nth-child(4){ bottom:56mm;  width:30mm;  opacity:.16; }
+
   /* ---------- about ---------- */
   .about-grid{ display:grid; grid-template-columns:1.25fr 1fr; gap:11mm; align-items:start; }
   .body-copy p{ font-size:9.6pt; line-height:1.78; color:var(--ink-soft); margin-bottom:4.5mm; }
@@ -444,7 +454,7 @@
 
 <!-- ======================= 03 · DIVIDER 01 ======================= -->
 <section class="page dark">
-  <div class="dv-photo" style="background-image:url('images/profile/video-poster-trailer.jpg')"></div>
+  <div class="dv-bars"><i></i><i></i><i></i><i></i></div>
   <div class="dv-rail"></div>
   <div class="dv-wedge"></div>
   <div class="pad">
@@ -638,7 +648,7 @@
 
 <!-- ======================= 09 · DIVIDER 03 ======================= -->
 <section class="page dark">
-  <div class="dv-photo" style="background-image:url('images/profile/video-poster-trailer2.jpg')"></div>
+  <div class="dv-bars"><i></i><i></i><i></i><i></i></div>
   <div class="dv-rail"></div>
   <div class="dv-wedge"></div>
   <div class="pad">
