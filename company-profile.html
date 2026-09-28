@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<!--
+  COMPANY PROFILE — print master.
+
+  This is the source for Trailer-Solution-Company-Profile.pdf. Edit the copy
+  here, then regenerate the PDF with:
+
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless --disable-gpu --no-pdf-header-footer \
+      --print-to-pdf="Trailer-Solution-Company-Profile.pdf" \
+      "file://$PWD/company-profile.html"
+
+  Page size is fixed at A4. Each .page is exactly one printed sheet, so if you
+  add copy to a section, check it still fits before regenerating.
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<!-- Not a page for search: the site's own pages carry this content already. -->
+<meta name="robots" content="noindex,nofollow">
+<title>Company Profile | Trailer Solution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal-950:#0d0c0c; --charcoal-900:#141212; --charcoal-800:#1b1918;
+    --charcoal-700:#262322; --charcoal-600:#3a3634;
+    --gold:#f2a900; --gold-light:#ffc94d;
+    --maroon:#7a1f2d;
+    --white:#f5f3ef; --gray-300:#c9c4bd; --gray-500:#948d85;
+    --ink:#1b1918; --ink-soft:#55504c; --paper:#ffffff; --paper-alt:#f7f5f1;
+    --line-dark:rgba(245,243,239,0.12); --line-light:rgba(27,25,24,0.12);
+  }
+
+  @page{ size:A4; margin:0; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); background:#8a8580;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* One .page == one A4 sheet. Fixed height so nothing reflows between
+     screen preview and the printed PDF. */
+  .page{
+    width:210mm; height:297mm; position:relative; overflow:hidden;
+    background:var(--paper); page-break-after:always; break-after:page;
+    margin:0 auto;
+  }
+  .page:last-child{ page-break-after:auto; break-after:auto; }
+  @media screen{ .page{ margin:8mm auto; box-shadow:0 4px 24px rgba(0,0,0,.35); } }
+
+  .pad{ padding:18mm 16mm; height:100%; display:flex; flex-direction:column; }
+
+  h1,h2,h3,h4{ margin:0; font-family:'Oswald',sans-serif; font-weight:600; line-height:1.1; }
+  p{ margin:0; }
+
+  .eyebrow{
+    font-family:'Oswald',sans-serif; font-size:8pt; font-weight:600;
+    letter-spacing:.22em; text-transform:uppercase; color:var(--gold);
+  }
+  .rule{ width:18mm; height:2px; background:var(--gold); margin:3mm 0 5mm; }
+
+  .sec-title{ font-size:22pt; letter-spacing:.01em; color:var(--ink); }
+  .sec-sub{ font-size:9.5pt; color:var(--ink-soft); line-height:1.6; margin-top:2.5mm; }
+
+  /* ---------- cover ---------- */
+  .cover{ background:var(--charcoal-950); color:var(--white); }
+  .cover-img{
+    position:absolute; inset:0 0 auto 0; height:150mm;
+    background:url('images/hero-bg.jpg') center/cover no-repeat;
+  }
+  .cover-veil{
+    position:absolute; inset:0;
+    background:linear-gradient(180deg,rgba(13,12,12,.62) 0%,rgba(13,12,12,.78) 45%,var(--charcoal-950) 74%);
+  }
+  .cover-inner{ position:relative; height:100%; display:flex; flex-direction:column; padding:16mm; }
+  .cover-brand{ display:flex; align-items:center; gap:5mm; }
+  .cover-brand img{ width:17mm; height:17mm; }
+  .cover-brand strong{
+    display:block; font-family:'Bebas Neue','Oswald',sans-serif;
+    font-size:19pt; letter-spacing:.08em; line-height:1;
+  }
+  .cover-brand span{
+    display:block; font-size:7.5pt; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--gray-300); margin-top:1.5mm;
+  }
+  .cover-mid{ margin-top:auto; }
+  .cover-kicker{
+    font-family:'Oswald',sans-serif; font-size:9pt; font-weight:600;
+    letter-spacing:.3em; text-transform:uppercase; color:var(--gold);
+  }
+  .cover-title{
+    font-family:'Bebas Neue','Oswald',sans-serif; font-size:52pt;
+    letter-spacing:.02em; line-height:.95; margin:4mm 0 0;
+  }
+  .cover-lede{
+    font-size:11pt; line-height:1.65; color:var(--gray-300);
+    max-width:128mm; margin-top:6mm;
+  }
+  .cover-tags{ display:flex; flex-wrap:wrap; gap:2.5mm; margin-top:8mm; }
+  .tag{
+    font-family:'Oswald',sans-serif; font-size:7.5pt; font-weight:500;
+    letter-spacing:.14em; text-transform:uppercase;
+    border:1px solid rgba(242,169,0,.45); color:var(--gold-light);
+    padding:2mm 3.5mm; border-radius:2px;
+  }
+  .cover-foot{
+    margin-top:auto; padding-top:7mm; border-top:1px solid var(--line-dark);
+    display:flex; justify-content:space-between; align-items:flex-end; gap:6mm;
+  }
+  .cover-foot div{ font-size:8.5pt; line-height:1.7; color:var(--gray-300); }
+  .cover-foot b{ display:block; color:var(--white); font-size:9.5pt; }
+  .cover-foot .lbl{
+    font-family:'Oswald',sans-serif; font-size:7pt; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:1mm;
+  }
+
+  /* ---------- interior header ---------- */
+  .head{ margin-bottom:9mm; }
+
+  /* ---------- about ---------- */
+  .about-grid{ display:grid; grid-template-columns:1.32fr 1fr; gap:10mm; align-items:start; }
+  .body-copy p{ font-size:9.7pt; line-height:1.75; color:var(--ink-soft); margin-bottom:4mm; }
+  .body-copy p:last-child{ margin-bottom:0; }
+  .body-copy strong{ color:var(--ink); font-weight:600; }
+
+  .stats{ display:grid; gap:3.5mm; }
+  .stat{
+    background:var(--charcoal-900); color:var(--white);
+    padding:5.5mm 6mm; border-left:3px solid var(--gold); border-radius:2px;
+  }
+  .stat b{
+    display:block; font-family:'Bebas Neue','Oswald',sans-serif;
+    font-size:27pt; line-height:1; color:var(--gold);
+  }
+  .stat span{
+    display:block; font-size:7.5pt; letter-spacing:.16em; text-transform:uppercase;
+    color:var(--gray-300); margin-top:2mm;
+  }
+
+  .quote{
+    margin-top:10mm; background:var(--charcoal-950); color:var(--white);
+    padding:9mm 10mm; border-radius:2px; position:relative;
+  }
+  .quote p{
+    font-family:'Oswald',sans-serif; font-weight:400; font-size:14pt;
+    line-height:1.45; font-style:italic;
+  }
+  .quote p::before{ content:'\201C'; color:var(--gold); margin-right:1mm; }
+  .quote p::after{ content:'\201D'; color:var(--gold); margin-left:1mm; }
+
+  .eng-grid{ display:grid; grid-template-columns:1fr 1fr; gap:5mm 8mm; margin-top:9mm; }
+  .eng{ border-top:1px solid var(--line-light); padding-top:3.5mm; }
+  .eng h4{ font-size:10pt; margin-bottom:1.5mm; }
+  .eng p{ font-size:8.6pt; line-height:1.6; color:var(--ink-soft); }
+
+  /* ---------- products ---------- */
+  .prod-grid{ display:grid; grid-template-columns:1fr 1fr; gap:5mm; margin-top:1mm; }
+  .prod{
+    border:1px solid var(--line-light); border-radius:3px; overflow:hidden;
+    background:var(--paper-alt); display:flex; flex-direction:column;
+  }
+  .prod-img{ height:23mm; background-size:cover; background-position:center; }
+  .prod-body{ padding:4mm 4.5mm 4.5mm; flex:1; display:flex; flex-direction:column; }
+  .prod-num{
+    font-family:'Bebas Neue','Oswald',sans-serif; font-size:10pt;
+    color:var(--gold); letter-spacing:.1em;
+  }
+  .prod h4{ font-size:11pt; margin:1mm 0 2mm; }
+  .prod p{ font-size:8.3pt; line-height:1.55; color:var(--ink-soft); flex:1; }
+  .chips{ display:flex; flex-wrap:wrap; gap:1.5mm; margin-top:3mm; }
+  .chip{
+    font-size:6.6pt; letter-spacing:.1em; text-transform:uppercase;
+    font-family:'Oswald',sans-serif; color:var(--maroon);
+    border:1px solid rgba(122,31,45,.3); padding:1mm 2mm; border-radius:2px;
+  }
+  .prod-note{
+    margin-top:5mm; background:var(--charcoal-900); color:var(--white);
+    padding:4.5mm 6mm; border-radius:2px; display:flex; gap:5mm; align-items:center;
+  }
+  .prod-note h4{ font-size:11pt; color:var(--gold); white-space:nowrap; }
+  .prod-note p{ font-size:8.8pt; line-height:1.6; color:var(--gray-300); }
+
+  /* ---------- process ---------- */
+  .steps{ display:grid; gap:4.5mm; margin-top:1mm; }
+  .step{ display:grid; grid-template-columns:14mm 1fr; gap:5mm; align-items:start; }
+  .step-n{
+    font-family:'Bebas Neue','Oswald',sans-serif; font-size:19pt; line-height:1;
+    color:var(--gold); border-right:1px solid var(--line-light);
+    padding-right:4mm; padding-top:.5mm; text-align:right;
+  }
+  .step h4{ font-size:10.5pt; margin-bottom:1.5mm; }
+  .step p{ font-size:8.7pt; line-height:1.62; color:var(--ink-soft); }
+
+  /* ---------- capability / export ---------- */
+  .cap-grid{ display:grid; grid-template-columns:1fr 1fr; gap:4.5mm 7mm; }
+  .cap{ display:grid; grid-template-columns:5mm 1fr; gap:3.5mm; }
+  .cap-dot{ width:2.5mm; height:2.5mm; background:var(--gold); border-radius:50%; margin-top:2mm; }
+  .cap h4{ font-size:10pt; margin-bottom:1.5mm; }
+  .cap p{ font-size:8.5pt; line-height:1.6; color:var(--ink-soft); }
+
+  .export{
+    margin-top:9mm; background:var(--paper-alt);
+    border:1px solid var(--line-light); border-radius:3px; padding:7mm 8mm;
+  }
+  .export h3{ font-size:13pt; margin-bottom:2.5mm; }
+  .export > p{ font-size:9pt; line-height:1.7; color:var(--ink-soft); }
+  .countries{ display:flex; flex-wrap:wrap; gap:2mm; margin:5mm 0 6mm; }
+  .country{
+    font-family:'Oswald',sans-serif; font-size:8pt; font-weight:500;
+    letter-spacing:.1em; text-transform:uppercase;
+    background:var(--charcoal-900); color:var(--gold-light);
+    padding:2mm 3.5mm; border-radius:2px;
+  }
+  .export-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:5mm; }
+  .export-step{ border-top:2px solid var(--gold); padding-top:3mm; }
+  .export-step h4{ font-size:9pt; margin-bottom:1.5mm; }
+  .export-step p{ font-size:8.2pt; line-height:1.55; color:var(--ink-soft); }
+
+  /* ---------- reviews + contact ---------- */
+  .closing{ background:var(--charcoal-950); color:var(--white); }
+  .closing .sec-title{ color:var(--white); }
+  .closing .sec-sub{ color:var(--gray-300); }
+
+  .revs{ display:grid; gap:4mm; margin-top:1mm; }
+  .rev{
+    background:var(--charcoal-800); border-left:3px solid var(--gold);
+    padding:5mm 6mm; border-radius:2px;
+  }
+  .rev p{ font-size:9pt; line-height:1.65; color:var(--gray-300); font-style:italic; }
+  .rev b{
+    display:block; margin-top:2.5mm; font-family:'Oswald',sans-serif;
+    font-size:8.5pt; letter-spacing:.1em; text-transform:uppercase; color:var(--white);
+  }
+  .stars{ color:var(--gold); font-size:8pt; letter-spacing:.18em; margin-bottom:2mm; }
+
+  .contact{
+    margin-top:auto; border-top:1px solid var(--line-dark); padding-top:8mm;
+    display:grid; grid-template-columns:repeat(2,1fr); gap:6mm 8mm;
+  }
+  .cline .lbl{
+    font-family:'Oswald',sans-serif; font-size:7pt; letter-spacing:.22em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:1.5mm;
+  }
+  .cline b{ font-size:11pt; font-weight:600; color:var(--white); display:block; }
+  .cline span{ font-size:8.5pt; color:var(--gray-500); display:block; margin-top:1mm; }
+
+  .closing-foot{
+    margin-top:8mm; padding-top:5mm; border-top:1px solid var(--line-dark);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:7.5pt; letter-spacing:.14em; text-transform:uppercase;
+    font-family:'Oswald',sans-serif; color:var(--gray-500);
+  }
+  .closing-foot b{ color:var(--gold); }
+
+.cover-stats{
+  display:grid; grid-template-columns:repeat(3,1fr); gap:6mm;
+  margin-top:auto; padding-bottom:7mm;
+}
+.cover-stat b{
+  display:block; font-family:'Bebas Neue','Oswald',sans-serif;
+  font-size:26pt; line-height:1; color:var(--gold);
+}
+.cover-stat span{
+  display:block; font-size:7pt; letter-spacing:.18em; text-transform:uppercase;
+  color:var(--gray-300); margin-top:2mm;
+}
+.band{
+  margin-top:auto; border-radius:3px; overflow:hidden;
+  border:1px solid var(--line-light);
+}
+.band-img{ height:52mm; background-size:cover; background-position:center; }
+.band-cap{
+  background:var(--charcoal-900); color:var(--gray-300);
+  padding:4mm 6mm; font-size:8.2pt; letter-spacing:.04em;
+  display:flex; justify-content:space-between; gap:5mm;
+}
+.band-cap b{
+  font-family:'Oswald',sans-serif; color:var(--gold);
+  letter-spacing:.14em; text-transform:uppercase; font-size:7.5pt;
+}
+.howto{
+  margin-top:auto; background:var(--charcoal-900); color:var(--white);
+  border-radius:3px; padding:7mm 8mm;
+}
+.howto h3{ font-size:12.5pt; color:var(--white); margin-bottom:4mm; }
+.howto-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:6mm; }
+.howto-step h4{ font-size:9pt; color:var(--gold); margin-bottom:1.5mm; }
+.howto-step p{ font-size:8.2pt; line-height:1.6; color:var(--gray-300); }
+.cta{
+  margin-top:auto; background:var(--gold); color:var(--charcoal-950);
+  border-radius:3px; padding:6mm 8mm;
+  display:flex; align-items:center; justify-content:space-between; gap:6mm;
+}
+.cta h3{ font-size:14pt; color:var(--charcoal-950); }
+.cta p{ font-size:8.8pt; line-height:1.55; color:rgba(13,12,12,.78); margin-top:1.5mm; }
+.cta-num{
+  font-family:'Bebas Neue','Oswald',sans-serif; font-size:21pt;
+  letter-spacing:.03em; white-space:nowrap; color:var(--charcoal-950);
+}
+
+  /* page number on interior sheets */
+  .pnum{
+    position:absolute; bottom:9mm; right:16mm;
+    font-family:'Oswald',sans-serif; font-size:7.5pt; letter-spacing:.2em;
+    color:var(--gray-500);
+  }
+  .pnum.on-dark{ color:var(--gray-500); }
+</style>
+</head>
+<body>
+
+<!-- ============ 1 · COVER ============ -->
+<section class="page cover">
+  <div class="cover-img"></div>
+  <div class="cover-veil"></div>
+  <div class="cover-inner">
+    <div class="cover-brand">
+      <img src="images/icon.svg" alt="">
+      <div>
+        <strong>TRAILER SOLUTION</strong>
+        <span>Manufacturing Facility</span>
+      </div>
+    </div>
+
+    <div class="cover-mid">
+      <div class="cover-kicker">Company Profile</div>
+      <h1 class="cover-title">HEAVY-DUTY<br>TRAILER<br>MANUFACTURING</h1>
+      <p class="cover-lede">
+        A Dubai manufacturing facility building trailers to specification — from
+        structural steel cutting through to final inspection, all under one roof
+        at Ras Al Khor. Supplying fleets across the UAE and the GCC since 2013.
+      </p>
+      <div class="cover-tags">
+        <span class="tag">A-Frame</span>
+        <span class="tag">Car Carrier</span>
+        <span class="tag">Flatbed &amp; Stake</span>
+        <span class="tag">Curtain-Side</span>
+        <span class="tag">Box &amp; Reefer</span>
+        <span class="tag">Heavy-Duty Cargo</span>
+      </div>
+    </div>
+
+<div class="cover-stats">
+  <div class="cover-stat"><b>10+</b><span>Years Building</span></div>
+  <div class="cover-stat"><b>10,000+</b><span>Units Manufactured</span></div>
+  <div class="cover-stat"><b>6</b><span>Trailer Ranges</span></div>
+</div>
+
+    <div class="cover-foot">
+      <div>
+        <div class="lbl">Facility</div>
+        <b>Ras Al Khor Industrial Area 2</b>
+        Dubai, United Arab Emirates
+      </div>
+      <div>
+        <div class="lbl">Contact</div>
+        <b>+971 54 461 9553</b>
+        trailers-solution.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 2 · WHO WE ARE ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="head">
+      <div class="eyebrow">Who We Are</div>
+      <div class="rule"></div>
+      <h2 class="sec-title">A Manufacturer, Not a Reseller</h2>
+      <p class="sec-sub">Every chassis is fabricated in-house at our own facility in Dubai.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="body-copy">
+        <p>
+          Since 2013, Trailer Solution has been designing and fabricating heavy-duty
+          trailers from our facility in <strong>Ras Al Khor Industrial Area 2, Dubai</strong> —
+          built for logistics fleets, transport companies and contractors across the UAE.
+        </p>
+        <p>
+          Every chassis is fabricated in-house, from structural steel cutting and welding
+          through to final finishing. We build to your axle configuration, payload and
+          cargo requirements — <strong>not off a fixed catalogue</strong> — so what leaves
+          our yard is matched to the job it is going to do.
+        </p>
+        <p>
+          From single trailers to fleet orders, our team works directly with owners and
+          operators to spec, build and deliver on time. There is no outsourced chassis
+          and no third party between you and the people cutting the steel.
+        </p>
+        <p>
+          We work in <strong>English and Arabic</strong>, and we supply buyers across the
+          wider Gulf as well as the UAE.
+        </p>
+      </div>
+
+      <div class="stats">
+        <div class="stat"><b>10+</b><span>Years of Experience</span></div>
+        <div class="stat"><b>10,000+</b><span>Manufactured Products</span></div>
+        <div class="stat"><b>100%</b><span>Built to Custom Spec</span></div>
+      </div>
+    </div>
+
+    <div class="quote">
+      <p>Every chassis is inspected before it becomes someone's livelihood on the road.</p>
+    </div>
+
+    <div class="head" style="margin-top:11mm;margin-bottom:0;">
+      <div class="eyebrow">What We Engineer Around</div>
+      <div class="rule"></div>
+    </div>
+
+    <div class="eng-grid">
+      <div class="eng">
+        <h4>Axle Configuration</h4>
+        <p>Two, three or more axles, spaced and specified for the payload and the limits on your route.</p>
+      </div>
+      <div class="eng">
+        <h4>Payload &amp; Load Distribution</h4>
+        <p>Chassis sized for the weight it will actually carry, with load spread through the frame rather than concentrated over the bogie.</p>
+      </div>
+      <div class="eng">
+        <h4>Deck Height &amp; Length</h4>
+        <p>Set against your cargo and your tractor unit, so coupling height and turning clearance work in practice.</p>
+      </div>
+      <div class="eng">
+        <h4>Cargo-Specific Bodywork</h4>
+        <p>Built around how the load is actually handled — decked, caged, curtained, enclosed or ramped.</p>
+      </div>
+      <div class="eng">
+        <h4>Corrosion Protection</h4>
+        <p>Surface preparation and coating chosen for UAE heat, humidity and coastal exposure.</p>
+      </div>
+      <div class="eng">
+        <h4>Fleet Consistency</h4>
+        <p>Repeat builds to the same approved spec, so units added later match the ones already running.</p>
+      </div>
+    </div>
+  </div>
+  <div class="pnum">02</div>
+</section>
+
+<!-- ============ 3 · PRODUCT RANGE ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="head">
+      <div class="eyebrow">What We Build</div>
+      <div class="rule"></div>
+      <h2 class="sec-title">Trailer Types &amp; Products</h2>
+      <p class="sec-sub">Six core ranges, each fabricated to order — combine, extend or customise any of them to match your operation.</p>
+    </div>
+
+    <div class="prod-grid">
+      <div class="prod">
+        <div class="prod-img" style="background-image:url('images/chassis-detail.jpg')"></div>
+        <div class="prod-body">
+          <div class="prod-num">01</div>
+          <h4>A-Frame Trailers</h4>
+          <p>Heavy-duty tandem-axle flatbeds with a raised A-frame rack and upper lashing hooks for securing long or tall loads such as pipes, glass and steel sections.</p>
+          <div class="chips"><span class="chip">60-Ton Capacity</span><span class="chip">Tandem Axle</span><span class="chip">A-Frame Rack</span></div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img" style="background-image:url('images/flatbed-bare-chassis.jpg')"></div>
+        <div class="prod-body">
+          <div class="prod-num">02</div>
+          <h4>Flatbed &amp; Stake Body</h4>
+          <p>Open-deck cargo trailers with removable stakes and mesh sides for general freight, building materials and palletised loads.</p>
+          <div class="chips"><span class="chip">Removable Stakes</span><span class="chip">Mesh Sides</span><span class="chip">Open Deck</span></div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img" style="background-image:url('images/curtain-canopy-grey.jpg')"></div>
+        <div class="prod-body">
+          <div class="prod-num">03</div>
+          <h4>Curtain-Side Trailers</h4>
+          <p>Flatbeds fitted with an arched canopy roof and caged sides — weatherproof cargo cover with fast side-loading access.</p>
+          <div class="chips"><span class="chip">Arched Canopy</span><span class="chip">Weatherproof</span><span class="chip">Side Access</span></div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img" style="background-image:url('images/reefer-branded.jpg')"></div>
+        <div class="prod-body">
+          <div class="prod-num">04</div>
+          <h4>Box &amp; Reefer Trailers</h4>
+          <p>Fully enclosed box trailers, insulated and refrigeration-ready, for dry goods, retail distribution and temperature-sensitive cargo.</p>
+          <div class="chips"><span class="chip">Insulated</span><span class="chip">Reefer-Ready</span><span class="chip">Enclosed</span></div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img" style="background-image:url('images/heavy-mesh-cargo.jpg')"></div>
+        <div class="prod-body">
+          <div class="prod-num">05</div>
+          <h4>Heavy-Duty Cargo Trailers</h4>
+          <p>Reinforced mesh-sided trailers built for scrap, aggregate and loose heavy cargo where extra containment and durability matter.</p>
+          <div class="chips"><span class="chip">Reinforced Mesh</span><span class="chip">Heavy Load</span><span class="chip">Drop Sides</span></div>
+        </div>
+      </div>
+
+      <div class="prod">
+        <div class="prod-img" style="background-image:url('images/car-carrier-maroon-side.jpg')"></div>
+        <div class="prod-body">
+          <div class="prod-num">06</div>
+          <h4>Car Carrier Trailers</h4>
+          <p>Open-deck single-level vehicle transporters with a full-length top walkway, mesh loading ramp and multiple lashing points for cars and light vehicles.</p>
+          <div class="chips"><span class="chip">Tandem Axle</span><span class="chip">Open Deck</span><span class="chip">Vehicle Transport</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-note">
+      <h4>Need Something Different?</h4>
+      <p>Every trailer is built to spec. Tell us your axle count, payload and cargo type, and we will fabricate to match — including combinations that are not in the six ranges above.</p>
+    </div>
+  </div>
+  <div class="pnum">03</div>
+</section>
+
+<!-- ============ 4 · BUILD PROCESS ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="head">
+      <div class="eyebrow">Precision Engineering</div>
+      <div class="rule"></div>
+      <h2 class="sec-title">From Spec Sheet to Road</h2>
+      <p class="sec-sub">Seven stages, all under one roof at our Dubai facility.</p>
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">01</div>
+        <div>
+          <h4>Specification &amp; Design</h4>
+          <p>We start with the job the trailer has to do — cargo type, payload, route and the tractor unit it will run behind. Axle count, chassis length, deck height and coupling geometry all follow from that, not from a template. You approve the spec before any steel is cut.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <div>
+          <h4>Structural Steel Cutting</h4>
+          <p>Main beams, cross members and gussets are cut to the drawing. Getting the profile right at this stage is what keeps the chassis straight later — a few millimetres of error here compounds across the length of the frame.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <div>
+          <h4>Chassis Fabrication &amp; Welding</h4>
+          <p>The main frame is jigged, squared and welded by our own fabricators. Load paths run continuously through the chassis so stress transfers into the structure rather than concentrating at a joint. Welds along the primary beams are checked as the frame goes together, not only at the end.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <div>
+          <h4>Suspension, Axles &amp; Braking</h4>
+          <p>Suspension and axles are mounted to the approved configuration, and the braking and air systems are plumbed in. Axle alignment is set at this stage — it is the single biggest factor in how evenly the trailer wears its tyres over the years that follow.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">05</div>
+        <div>
+          <h4>Surface Preparation &amp; Paint</h4>
+          <p>The frame is cleaned and prepared before coating. In UAE conditions — heat, humidity, coastal salt and construction dust — surface prep is what decides whether the finish is still intact in year five. Colour and livery are done to your requirement.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">06</div>
+        <div>
+          <h4>Bodywork &amp; Fit-Out</h4>
+          <p>Decking, sides, stake pockets, curtains, box panels, ramps or reefer insulation are fitted according to the build. Lighting, wiring, mudguards, landing legs and safety markings go on at this stage.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">07</div>
+        <div>
+          <h4>Inspection &amp; Handover</h4>
+          <p>The completed unit is checked over before it leaves the yard — structure, brakes, lighting, coupling and finish. You or your agent are welcome at the facility to inspect the finished trailer before it goes.</p>
+        </div>
+      </div>
+    </div>
+<div class="band">
+  <div class="band-img" style="background-image:url('images/video-poster-trailer.jpg')"></div>
+  <div class="band-cap">
+    <span><b>Inside the Facility</b></span>
+    <span>Ras Al Khor Industrial Area 2, Dubai — fabrication floor</span>
+  </div>
+</div>
+
+
+  </div>
+  <div class="pnum">04</div>
+</section>
+
+<!-- ============ 5 · CAPABILITIES + EXPORT ============ -->
+<section class="page">
+  <div class="pad">
+    <div class="head">
+      <div class="eyebrow">Capabilities</div>
+      <div class="rule"></div>
+      <h2 class="sec-title">Services Built Around Your Fleet</h2>
+      <p class="sec-sub">From first sketch to final delivery, our Ras Al Khor facility handles every stage of the build in-house.</p>
+    </div>
+
+    <div class="cap-grid">
+      <div class="cap"><div class="cap-dot"></div><div>
+        <h4>Custom Fabrication</h4>
+        <p>Built to your exact axle configuration, deck length and payload requirement — not a fixed catalogue spec.</p>
+      </div></div>
+      <div class="cap"><div class="cap-dot"></div><div>
+        <h4>Heavy-Duty Steel Construction</h4>
+        <p>Structural steel chassis with corrosion-resistant coating, engineered to handle UAE heat, load cycles and mileage.</p>
+      </div></div>
+      <div class="cap"><div class="cap-dot"></div><div>
+        <h4>Precision Welding &amp; QC</h4>
+        <p>Every chassis is inspected at each fabrication stage, from frame welds to axle alignment, before it leaves the yard.</p>
+      </div></div>
+      <div class="cap"><div class="cap-dot"></div><div>
+        <h4>UAE-Wide Delivery &amp; Registration</h4>
+        <p>Support through RTA registration and delivery of your finished trailer anywhere in the UAE.</p>
+      </div></div>
+      <div class="cap"><div class="cap-dot"></div><div>
+        <h4>After-Sales Support</h4>
+        <p>Ongoing spare parts, repair and maintenance support from the same team that built your trailer.</p>
+      </div></div>
+      <div class="cap"><div class="cap-dot"></div><div>
+        <h4>Fleet &amp; Repeat Orders</h4>
+        <p>From single units to multi-trailer fleet orders, built to one approved specification.</p>
+      </div></div>
+    </div>
+
+    <div class="export">
+      <div class="eyebrow">Buying From Outside the UAE</div>
+      <div class="rule" style="margin:2.5mm 0 4mm;"></div>
+      <h3>We Supply Across the GCC</h3>
+      <p>
+        We have supplied buyers in Saudi Arabia, Oman, Qatar, Kuwait and Bahrain. Your
+        trailer is built and handed over at our Ras Al Khor facility in Dubai, and you or
+        your transport agent collect it — with the export documentation supplied by us.
+        Customs clearance itself is handled by you or your agent.
+      </p>
+
+      <div class="countries">
+        <span class="country">Saudi Arabia</span>
+        <span class="country">Oman</span>
+        <span class="country">Qatar</span>
+        <span class="country">Kuwait</span>
+        <span class="country">Bahrain</span>
+        <span class="country">United Arab Emirates</span>
+      </div>
+
+      <div class="export-steps">
+        <div class="export-step">
+          <h4>Collection from Dubai</h4>
+          <p>Finished, inspected and ready at Ras Al Khor. Inspection before collection is welcome.</p>
+        </div>
+        <div class="export-step">
+          <h4>Documents Supplied</h4>
+          <p>Commercial invoice, certificate of origin and the technical documentation for the trailer.</p>
+        </div>
+        <div class="export-step">
+          <h4>Own Wheels or Low-Bed</h4>
+          <p>Towed out behind a tractor unit, or carried out on a low-bed or flatbed.</p>
+        </div>
+      </div>
+    </div>
+<div class="howto">
+  <h3>How an Order Works</h3>
+  <div class="howto-grid">
+    <div class="howto-step">
+      <h4>01 · Tell us the job</h4>
+      <p>Cargo type, payload, route and the tractor unit it will run behind. A rough idea is enough to start.</p>
+    </div>
+    <div class="howto-step">
+      <h4>02 · Spec and quotation</h4>
+      <p>We come back with a full specification, a price and a lead time confirmed in writing, before you commit.</p>
+    </div>
+    <div class="howto-step">
+      <h4>03 · Build and handover</h4>
+      <p>You approve the spec, we cut steel. The finished unit is inspected before it leaves the yard.</p>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  <div class="pnum">05</div>
+</section>
+
+<!-- ============ 6 · CLIENTS + CONTACT ============ -->
+<section class="page closing">
+  <div class="pad">
+    <div class="head">
+      <div class="eyebrow">What Our Clients Say</div>
+      <div class="rule"></div>
+      <h2 class="sec-title">Trusted by Fleets Across the GCC</h2>
+      <p class="sec-sub">From single-unit owners to logistics operators running dozens of trailers.</p>
+    </div>
+
+    <div class="revs">
+      <div class="rev">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Very professional team from start to end. The trailer was built exactly according to our requirements, and the quality of the fabrication was excellent.</p>
+        <b>Ahmed Khan</b>
+      </div>
+      <div class="rev">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Trailer Solution understood exactly what I needed and provided a strong, reliable trailer at a competitive price. The process was smooth.</p>
+        <b>Muhammad Altaf</b>
+      </div>
+      <div class="rev">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>Good quality trailer and very responsive customer service. The trailer was delivered within the agreed timeframe — I would definitely get back to them.</p>
+        <b>Faisal Munir</b>
+      </div>
+    </div>
+
+<div class="cta">
+  <div>
+    <h3>Tell Us What You Need Built</h3>
+    <p>Send us your axle count, payload and cargo type and we will come back with a spec, a price and a timeline — usually within one working day.</p>
+  </div>
+  <div class="cta-num">+971 54 461 9553</div>
+</div>
+
+    <div class="contact">
+      <div class="cline">
+        <div class="lbl">Call / WhatsApp</div>
+        <b>+971 54 461 9553</b>
+        <span>English &amp; Arabic</span>
+      </div>
+      <div class="cline">
+        <div class="lbl">Email</div>
+        <b>rashidm7mmd@gmail.com</b>
+        <span>Quotations &amp; enquiries</span>
+      </div>
+      <div class="cline">
+        <div class="lbl">Facility</div>
+        <b>Ras Al Khor Industrial Area 2</b>
+        <span>Dubai, United Arab Emirates</span>
+      </div>
+      <div class="cline">
+        <div class="lbl">Online</div>
+        <b>trailers-solution.com</b>
+        <span>Instagram @trailersolution.ae</span>
+      </div>
+    </div>
+
+    <div class="closing-foot">
+      <span>Trailer Solution Manufacturing Facility</span>
+      <span><b>Manufacturing Since 2013</b></span>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
