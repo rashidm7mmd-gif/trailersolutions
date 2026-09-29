@@ -187,7 +187,7 @@
   // body is what we check, never res.ok. Getting that wrong tells a customer
   // their enquiry was sent when it was not, which is worse than an error.
   var FORM_ENDPOINT = 'https://api.web3forms.com/submit';
-  var FORM_KEY = '97af8910-e710-4bc8-b4da-e9fa3f53dde0';
+  var FORM_KEY = '837bbe18-141c-40e9-ba58-a92a4baffb45';
 
   var form = document.getElementById('quoteForm');
   var success = document.getElementById('formSuccess');
