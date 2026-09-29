@@ -95,4 +95,4 @@ whenever either changes, so returning visitors don't get a stale cached copy.
 ## Contact
 
 Ras Al Khor Industrial Area 2, Dubai, United Arab Emirates
-+971 54 461 9553 · sales@trailers-solution.com
++971 54 461 9553 · info@trailers-solution.com
