@@ -272,7 +272,9 @@
         Page: (isAr ? 'Arabic' : 'English') + ' — ' + location.pathname,
         access_key: FORM_KEY,
         subject: 'Quotation request — ' + (val('fName') || 'website'),
-        from_name: 'Trailer Solution website'
+        from_name: 'Trailer Solution website',
+        // Hitting Reply in the inbox then answers the customer, not the relay.
+        replyto: val('fEmail')
       };
 
       var restore = function(){
