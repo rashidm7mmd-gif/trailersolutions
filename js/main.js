@@ -176,17 +176,71 @@
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // Quote form -> WhatsApp handoff
+  // Quote form -> emailed to the office.
+  //
+  // The site is static, so the post goes to Web3Forms, which relays it to
+  // whichever address the access key below is registered to. That key is a
+  // public, per-form identifier and is meant to sit in client-side code.
+  //
+  // Web3Forms can answer 200 while still not having sent anything (bad key,
+  // rate limit), and reports the real outcome in the body, so the response
+  // body is what we check, never res.ok. Getting that wrong tells a customer
+  // their enquiry was sent when it was not, which is worse than an error.
+  var FORM_ENDPOINT = 'https://api.web3forms.com/submit';
+  var FORM_KEY = '97af8910-e710-4bc8-b4da-e9fa3f53dde0';
+
   var form = document.getElementById('quoteForm');
   var success = document.getElementById('formSuccess');
   if (form) {
+    var isAr = (document.documentElement.getAttribute('lang') || '').indexOf('ar') === 0;
+
+    var TXT = isAr ? {
+      sending: 'جارٍ الإرسال…',
+      ok: 'شكرًا — تم استلام طلبك. سنرد عليك عبر البريد الإلكتروني.',
+      fail: 'تعذّر إرسال الطلب. راسلنا على info@trailers-solution.com أو عبر واتساب 9553 461 54 971+.'
+    } : {
+      sending: 'Sending…',
+      ok: 'Thanks — your request has been sent. We will reply by email.',
+      fail: 'Sorry, that did not send. Please email info@trailers-solution.com or WhatsApp +971 54 461 9553.'
+    };
+
     var val = function(id){
       var el = document.getElementById(id);
       return el ? el.value.trim() : '';
     };
 
+    // The success banner is a bare div on one page and an icon plus a span on
+    // another, so write into the span where there is one.
+    var setSuccessText = function(msg){
+      if (!success) return;
+      var span = success.querySelector('span');
+      if (span) { span.textContent = msg; } else { success.textContent = msg; }
+    };
+
+    // Failures get their own banner, built here so the four pages carrying
+    // this form do not each need the markup.
+    var errorBox = null;
+    var showError = function(){
+      if (!errorBox) {
+        errorBox = document.createElement('div');
+        errorBox.className = 'form-error';
+        errorBox.setAttribute('role', 'alert');
+        if (success && success.parentNode) {
+          success.parentNode.insertBefore(errorBox, success.nextSibling);
+        } else {
+          form.parentNode.insertBefore(errorBox, form);
+        }
+      }
+      errorBox.textContent = TXT.fail;
+      errorBox.classList.add('show');
+    };
+    var clearError = function(){
+      if (errorBox) errorBox.classList.remove('show');
+    };
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
+      clearError();
 
       var required = ['fName', 'fPhone', 'fEmail', 'fType'];
       var firstInvalid = null;
@@ -205,28 +259,44 @@
         return;
       }
 
-      var fields = [
-        ['Name', val('fName')],
-        ['Phone', val('fPhone')],
-        ['Email', val('fEmail')],
-        ['Trailer Type', val('fType')],
-        ['Details', val('fMsg')]
-      ];
+      var btn = form.querySelector('button[type="submit"]');
+      var btnHTML = btn ? btn.innerHTML : '';
+      if (btn) { btn.disabled = true; btn.textContent = TXT.sending; }
 
-      var lines = ['Quotation request from trailers-solution.com'];
-      fields.forEach(function(f){
-        if (f[1]) lines.push(f[0] + ': ' + f[1]);
-      });
+      var payload = {
+        Name: val('fName'),
+        Phone: val('fPhone'),
+        Email: val('fEmail'),
+        'Trailer Type': val('fType'),
+        Details: val('fMsg'),
+        Page: (isAr ? 'Arabic' : 'English') + ' — ' + location.pathname,
+        access_key: FORM_KEY,
+        subject: 'Quotation request — ' + (val('fName') || 'website'),
+        from_name: 'Trailer Solution website'
+      };
 
-      var text = encodeURIComponent(lines.join('\n'));
-      success.classList.add('show');
+      var restore = function(){
+        if (btn) { btn.disabled = false; btn.innerHTML = btnHTML; }
+      };
 
-      window.open('https://wa.me/971544619553?text=' + text, '_blank', 'noopener');
-
-      setTimeout(function(){
-        success.classList.remove('show');
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function(res){
+        return res.json().catch(function(){ return null; });
+      }).then(function(data){
+        // Web3Forms returns a boolean; some relays use the string form.
+        if (!data || String(data.success) !== 'true') throw new Error('not sent');
+        restore();
+        setSuccessText(TXT.ok);
+        success.classList.add('show');
         form.reset();
-      }, 4000);
+        setTimeout(function(){ success.classList.remove('show'); }, 6000);
+      }).catch(function(){
+        restore();
+        showError();
+      });
     });
 
     form.addEventListener('input', function(e){
@@ -235,6 +305,7 @@
       }
     });
   }
+
 })();
 
 /* ============ FOOTER CONTACT POPOVERS ============ */

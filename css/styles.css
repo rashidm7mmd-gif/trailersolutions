@@ -354,6 +354,14 @@ section{ position:relative; }
 }
 .form-success.show{ display:flex; }
 
+/* Shown when the enquiry could not be sent, so the visitor still has a way
+   to reach us instead of assuming it went through. */
+.form-error{
+  display:none; align-items:center; gap:12px; background:rgba(122,31,45,0.18); border:1px solid var(--maroon-light);
+  color:#f0c9cf; padding:14px 16px; border-radius:var(--radius); font-size:13.5px; margin-bottom:18px;
+}
+.form-error.show{ display:flex; }
+
 /* ============ FOOTER ============ */
 .footer{ background:var(--charcoal-950); border-top:1px solid var(--line); padding:70px 0 30px; }
 .footer .container{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1.1fr; gap:50px; }
