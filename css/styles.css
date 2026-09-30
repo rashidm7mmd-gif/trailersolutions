@@ -677,6 +677,10 @@ html[dir="rtl"] .spec-table dl{ text-align:right; }
 }
 
 /* ============ GCC EXPORT BAND ============ */
+
+/* The UAE band sits directly above the GCC one, so it takes the darker
+   shade to keep the two from reading as one long slab. */
+.uae-band{ background:var(--charcoal-950); border-bottom:none; }
 .export-band{
   padding:110px 0; background:var(--charcoal-900);
   border-top:1px solid var(--line); border-bottom:1px solid var(--line);
